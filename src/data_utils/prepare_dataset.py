@@ -3,17 +3,17 @@ import sys
 
 from torch.utils.data import DataLoader
 
-import_dir = '/'.join(os.path.realpath(__file__).split('/')[:-2])
-sys.path.insert(0, import_dir + '/datasets/')
 
-from dmr_dataset import DMRDataset,DMRDatasetAnnotated, DMRDatasetClassification, DMR_gray, DMRDatasetAnnotatedGray,DMRDatasetClassificationGray
 
-sys.path.insert(0, import_dir + '/utils/')
-from attribute_hashmap import AttributeHashmap
+from src.datasets.dmr_dataset import DMRDataset,DMRDatasetAnnotated, DMRDatasetClassification, DMR_gray, DMRDatasetAnnotatedGray,DMRDatasetClassificationGray
 
-sys.path.insert(0, import_dir + '/data_utils/')
-from extend import ExtendedDataset
-from split import split_dataset
+
+from src.utils.attribute_hashmap import AttributeHashmap
+
+
+
+from CUTS.src.data_utils.extend import ExtendedDataset
+from CUTS.src.data_utils.split import split_dataset
 
 
 def prepare_dataset(config: AttributeHashmap, mode: str = 'train',binary=False):
